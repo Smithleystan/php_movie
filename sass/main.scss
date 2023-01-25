@@ -42,6 +42,10 @@ img {
     margin: 0 auto;
 }
 
+.essaie{
+    
+}
+
 @media screen and (min-width : 768px) {
     .test {
         display: grid;
@@ -56,9 +60,9 @@ img {
 
     }
 
-    .detail {
-        display: flex;
-    }
+    // .detail {
+    //     display: flex;
+    // }
 
 }
 
@@ -77,9 +81,9 @@ img {
         width: 250px;
     }
 
-    .detail {
-        display: none;
-    }
+    // .detail {
+    //     display: none;
+    // }
 
 
 }

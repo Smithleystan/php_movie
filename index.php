@@ -3,7 +3,7 @@ $api = file_get_contents("./movies.json");
 $datas = json_decode($api, true);
 
 
-include("templates/header.php");
+include('./templates/header.php')
 ?>
 <div class="test">
     <?php
@@ -18,7 +18,7 @@ include("templates/header.php");
             ?>
 
 
-        <a href="detail.php/?id=<?= $data["id"] ?>">
+        <a href="detail.php?id=<?= $data["id"] ?>">
             <figure class="moviePicture">
                 <img src="./img/poster/<?= strtolower($pics) ?>.jpg" alt="">
                 <figcaption class="title">

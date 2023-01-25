@@ -1,36 +1,66 @@
 <?php
+
 $find = false;
 $api = file_get_contents("./movies.json");
+$movies = json_decode($api, true);
+$find = false;
 $id = $_GET["id"];
-$datas = json_decode($api, true);
+$data = array("title" => "film introuvable")
 
-include("./templates/header.php")
+
 
 ?>
-<div>
+
     <?php
 
-    foreach ($datas as $data) {
-        if ($id == $data["id"]) {
-            $test = $data;
+    foreach ($movies as $movie) {
+        if ($id == $movie["id"]) {
+            $title = $movie["title"];
+            $description =$movie['description'];
+            $duration = $movie["duration"];
+            $release = $movie["releaseDate"];
             $find = true;
+            
         }
     }
+   
+    include("templates/header.php")
+    
     ?>
-</div>
-<div class="detail">
+
+ 
+
+    <main>
+<?php 
+if($find){
+    ?>
+
+<div class="essaie">
     <div>
-        <img src="../img/poster/<?= strtolower(str_ireplace(" ", "-", $test['title'])) ?>.jpg" alt="">
+        <img src="img/poster/<?= strtolower(str_ireplace(" ", "-", $title)) ?>.jpg" alt="">
     </div>
     <div>
         <h3><?= date("Y", strtotime($test["releaseDate"])) ?></h3>
-        <div><?= $test['title'] ?></div>
-        <p><?= $test['description'] ?></p>
-        <div> <?= $test['duration']  ?> - <?= date("d/m/Y", strtotime($test["releaseDate"]))  ?></div>
+        <div><?= $title ?></div>
+        <p><?= $description ?></p>
+        <div> <?= $duration ?> - <?= date("d/m/Y", strtotime($test["releaseDate"]))  ?></div>
     </div>
 </div>
+<?php
+}else {
+    ?>
 
+<?=
+
+$data["title"];
+}
+?>
+
+
+
+
+</main>
 
 <?php
-include('./templates/footer.php')
+include('templates/footer.php')
 ?>
