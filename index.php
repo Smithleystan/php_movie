@@ -11,13 +11,8 @@ include('./templates/header.php')
 
     ?>
     <div class="movie">
-
-
-
         <?php $pics = str_replace(" ", "-", $data["title"])
             ?>
-
-
         <a href="detail.php?id=<?= $data["id"] ?>">
             <figure class="moviePicture">
                 <img src="./img/poster/<?= strtolower($pics) ?>.jpg" alt="">
@@ -35,12 +30,7 @@ include('./templates/header.php')
 
         </div>
     </div>
-
-
-
     <?php
-
-
     };
 
     ?>
