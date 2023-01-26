@@ -7,23 +7,23 @@ if (!empty($_POST)) {
     $duration = trim(strip_tags($_POST["duration"]));
     $video = trim(strip_tags($_POST["video"]));
 
-    // var_dump($releaseDate);
+    var_dump($releaseDate);
 
-    $sdn = "mysql:host=localhost;dbase=stan";
-    $db = new PDO($sdn, "root", "");
+    // $sdn = "mysql:host=localhost;dbase=stan";
+    // $db = new PDO($sdn, "root", "");
 
-    $query = $db->prepare("INSERT INTO stan.movies (title, genres, description, release_Date, duration, video) VALUES (:title, :genres, :description, :releaseDate, :duration, :video)");
+    // $query = $db->prepare("INSERT INTO stan.movies (title, genres, description, release_Date, duration, video) VALUES (:title, :genres, :description, :releaseDate, :duration, :video)");
 
-    $query->bindParam("title", $title);
-    $query->bindParam("genres", $genres);
-    $query->bindParam("description", $description);
-    $query->bindParam("releaseDate", $releaseDate, PDO::PARAM_STR);
-    $query->bindParam("duration", $duration, PDO::PARAM_INT);
-    $query->bindParam("video", $video);
+    // $query->bindParam("title", $title);
+    // $query->bindParam("genres", $genres);
+    // $query->bindParam("description", $description);
+    // $query->bindParam("releaseDate", $releaseDate, PDO::PARAM_STR);
+    // $query->bindParam("duration", $duration, PDO::PARAM_INT);
+    // $query->bindParam("video", $video);
 
-    if ($query->execute()) {
-        header("Location: index.php");
-    }
+    // if ($query->execute()) {
+    //     header("Location: index.php");
+    // }
 }
 
 include("./templates/header.php");
