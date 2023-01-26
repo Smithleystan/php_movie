@@ -12,6 +12,10 @@ $db= new PDO($sdn, "root", "")
 
 $query= $db->prepare("INSERT INTO nomdelabase.nomdelatable (nom de la colonne) VALUE(:non de l'input) ")
 $query-bindParam("nom de la colonne" , $nom de la variable)
+si le type est une date
+$query-bindParam("nom de la colonne" , $nom de la variable, PDO::PARAM_STR)
+si le type est un number
+$query-bindParam("nom de la colonne" , $nom de la variable, PDO::PARAM_INT)
 
 if (query-execute()){
 header("location : index.php")
